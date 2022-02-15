@@ -1,4 +1,4 @@
-<include href="views/header.html"></include>
+<?php echo $this->render('views/header.html',NULL,get_defined_vars(),0); ?>
 <body>
 <span>Navbar Goes up here in this area</span>
 <br>
@@ -35,7 +35,7 @@
 
 <br>
 
-<include href="views/footer.html"></include>
+<?php echo $this->render('views/footer.html',NULL,get_defined_vars(),0); ?>
 
 </body>
 </html>
