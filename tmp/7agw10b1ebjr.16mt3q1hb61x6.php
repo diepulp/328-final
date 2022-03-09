@@ -1,5 +1,5 @@
-<include href="views/header.html"></include>
-<include href="views/nav.html"></include>
+<?php echo $this->render('views/header.html',NULL,get_defined_vars(),0); ?>
+<?php echo $this->render('views/nav.html',NULL,get_defined_vars(),0); ?>
 
 <div class="container-fluid border">
 
@@ -28,4 +28,4 @@
     </div>
 </div>
 
-<include href="views/footer.html"></include>
+<?php echo $this->render('views/footer.html',NULL,get_defined_vars(),0); ?>
