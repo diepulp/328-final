@@ -1,4 +1,4 @@
- <include href="views/header.html"></include>
+ <?php echo $this->render('views/header.html',NULL,get_defined_vars(),0); ?>
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-<include href="views/nav.html"></include>
+<?php echo $this->render('views/nav.html',NULL,get_defined_vars(),0); ?>
 
 
 <!-- GALLERY -->
