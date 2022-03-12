@@ -8,16 +8,15 @@ require_once('vendor/autoload.php');
 
 //Create an instance of the Base class
 $f3 = Base::instance();
+$con = new Controller($f3);
 
 //Define a default root
 $f3->route('GET /', function() {
-    $view = new Template();
-    echo $view->render('views/home.html');
+    $GLOBALS['con']->home();
 });
 
 $f3->route('GET /gallery', function(){
-   $view = new Template();
-   echo $view->render('views/gallery.html');
+    $GLOBALS['con']->gallery();
 });
 
 
