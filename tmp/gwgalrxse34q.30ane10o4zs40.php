@@ -1,37 +1,30 @@
  <?php echo $this->render('views/header.html',NULL,get_defined_vars(),0); ?>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Terri Lynn Images</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+ />
 
-<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
-
-  <link rel="stylesheet" href="../styles/styles.css">
-</head>
-<body>
-<?php echo $this->render('views/nav.html',NULL,get_defined_vars(),0); ?>
+ <link rel="stylesheet" href="styles/galleryStyles.css">
+ </head>
+ <body>
+ <?php echo $this->render('views/nav.html',NULL,get_defined_vars(),0); ?>
 
 
 <!-- GALLERY -->
 <div class="container">
   <div class="row mt-4" id="gallery" data-toggle="modal" data-target="#modal">
-    <div class="col-12 col-sm-6 col-lg-3 shadow-lg">
-      <img class="w-100 " src="images/drop.jpg" alt="First slide" data-target="#carousel" data-slide-to="0">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <img class="w-100 " src="images/IMG_3514_HDR.jpg" alt="First slide" data-target="#carousel" data-slide-to="0">
     </div>
     <div class="col-12 col-sm-6 col-lg-3">
-      <img class="w-100" src="images/drop.jpg" alt="Second slide" data-target="#carousel" data-slide-to="1">
+      <img class="w-100" src="images/IMG_3884_HDR.jpg" alt="Second slide" data-target="#carousel" data-slide-to="1">
     </div>
     <div class="col-12 col-sm-6 col-lg-3">
-      <img class="w-100" src="images/drop.jpg" alt="Third slide" data-target="#carousel" data-slide-to="2">
+      <img class="w-100" src="images/IMG_3908_HDR.jpg" alt="Third slide" data-target="#carousel" data-slide-to="2">
     </div>
     <div class="col-12 col-sm-6 col-lg-3">
-      <img class="w-100" src="images/drop.jpg" alt="Fourth slide" data-target="#carousel" data-slide-to="3">
+      <img class="w-100" src="images/IMG_4088_HDR.jpg" alt="Fourth slide" data-target="#carousel" data-slide-to="3">
     </div>
   </div>
 </div>
@@ -56,16 +49,16 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="images/drop.jpg" alt="First slide">
+              <img class="d-block w-100" src="images/IMG_3514_HDR.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="images/drop.jpg" alt="Second slide">
+              <img class="d-block w-100" src="images/IMG_3884_HDR.jpg" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="images/drop.jpg" alt="Third slide">
+              <img class="d-block w-100" src="images/IMG_3908_HDR.jpg" alt="Third slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="images/drop.jpg" alt="Fourth slide">
+              <img class="d-block w-100" src="images/IMG_4088_HDR.jpg" alt="Fourth slide">
             </div>
           </div>
           <a class="carousel-control-prev text-primary" href="#carousel" role="button" data-slide="prev">
