@@ -114,14 +114,14 @@ class Controller
             }
 
             //no need to validate client
-            /*  $_SESSION['user']->setClient(isset($client));
+            $_SESSION['user']->setClient(isset($client));
 
               //TODO:Check for validation errors in if statements with &&
               if ($_SESSION['user']->getClient()) {
                   $this->_f3->reroute('photoshoot');
               } else {
                   $this->reset();
-              }*/
+              }
 
 
         }
