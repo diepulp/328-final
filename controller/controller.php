@@ -103,10 +103,11 @@ class Controller
                     $this->_f3->set('errors["email"]', 'Enter a valid email');
                 }
             }
+           /* $errors = $this->_f3->get('errors');
 
-            foreach($this->_f3->get('errors') as $error){
+            foreach($errors as $error){
                 echo $error;
-            }
+            }*/
 
             //Redirect user to home page
             if (empty($this->_f3->get('errors'))) {
@@ -114,14 +115,14 @@ class Controller
             }
 
             //no need to validate client
-            /*  $_SESSION['user']->setClient(isset($client));
+              $_SESSION['user']->setClient(isset($client));
 
               //TODO:Check for validation errors in if statements with &&
               if ($_SESSION['user']->getClient()) {
                   $this->_f3->reroute('photoshoot');
               } else {
                   $this->reset();
-              }*/
+              }
 
 
         }
