@@ -1,12 +1,15 @@
 <?php
 //Turn on error reporting
-ini_set('display_errors',1);
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+ob_start();
 //Require the autoload file
 require_once('vendor/autoload.php');
 
 session_start();
+var_dump($_SESSION);
+
 
 //Create an instance of the Base class
 $f3 = Base::instance();
@@ -15,27 +18,31 @@ $dataLayer = new DataLayer();
 
 $result = $dataLayer->getContacts();
 
+
+
 //Define a default root
-$f3->route('GET /', function() {
+$f3->route('GET /', function () {
     $GLOBALS['con']->home();
 });
 
-$f3->route('GET /gallery', function(){
+$f3->route('GET /gallery', function () {
     $GLOBALS['con']->gallery();
 });
 
-$f3->route('GET|POST /sign-up', function(){
+$f3->route('GET|POST /sign-up', function () {
+
     $GLOBALS['con']->signUp();
 });
 
-$f3->route('GET /admin', function(){
+$f3->route('GET /admin', function () {
     $GLOBALS['con']->admin();
 });
 
-$f3->route('GET|POST /photoshoot', function(){
+$f3->route('GET|POST /photoshoot', function () {
     $GLOBALS['con']->photoshoot();
 });
 
 
 //Run fat-free
 $f3->run();
+ob_flush();
