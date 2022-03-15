@@ -18,7 +18,6 @@
 <?php echo $this->render('views/nav.html',NULL,get_defined_vars(),0); ?>
 
 
-
 <!-- GALLERY -->
 <div class="container">
   <div class="row mt-4" id="gallery" data-toggle="modal" data-target="#modal">
