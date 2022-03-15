@@ -1,4 +1,4 @@
- <include href="views/header.html"></include>
+ <?php echo $this->render('views/header.html',NULL,get_defined_vars(),0); ?>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <link
          rel="stylesheet"
@@ -8,16 +8,8 @@
  <link rel="stylesheet" href="styles/galleryStyles.css">
  </head>
  <body>
- <include href="views/nav.html"></include>
+ <?php echo $this->render('views/nav.html',NULL,get_defined_vars(),0); ?>
 
-<<<<<<< HEAD
-  <link rel="stylesheet" href="../styles/styles.css">
-</head>
-<body>
-<include href="views/nav.html"></include>
-
-=======
->>>>>>> ae41d5474f20b4fe84326e5d933e3e48e285dbd7
 
 <!-- GALLERY -->
 <div class="container">
