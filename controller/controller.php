@@ -115,7 +115,11 @@ class Controller
             }
 
             //no need to validate client
+<<<<<<< HEAD
               $_SESSION['user']->setClient(isset($client));
+=======
+            $_SESSION['user']->setClient(isset($client));
+>>>>>>> ff44803b644aa7bf92ba5d6e1c412baea4b2139b
 
               //TODO:Check for validation errors in if statements with &&
               if ($_SESSION['user']->getClient()) {
