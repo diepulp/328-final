@@ -1,14 +1,58 @@
-//TODO: validation for fields in sign-up form
-//first, last, phone, email(use regex?) paid client checkbox
-//should add event listeners on document load and script file should be linked into sign-up's view
-//First and Last should check a length of the value and if its' string.
 
+
+//TODO: Fix MIME Mismatch error, display error messages
+
+//add click event listener to submit button on window load.
+window.onload = document.getElementById("signup").addEventListener("click",validate);
 
 /**
  * Validates account creation.
  */
 function validate()
 {
+    let validated = true; //default to true
+
+    //grab text from fields for validation.
+    let email = document.getElementById("email").innerHTML;
+    let phone = document.getElementById("phone").innerHTML;
+    let first = document.getElementById("first").innerHTML;
+    let last = document.getElementById("last").innerHTML;
+
+
+    //TODO: display errors inline instead of alerts. Else statements should remove the error statements.
+    //validate first name
+    if(!validateName(first))
+    {
+        validated = false;
+        alert"First name should be greater than three characters with no numbers.";
+    }
+
+    //validate last name
+    if(!validateName(last))
+    {
+        validated = false;
+        alert"last name should be greater than three characters with no numbers.";
+    }
+
+    //validate email
+    if(!validateEmail(email))
+    {
+        validated = false;
+        alert"Please enter an email with the format: email@email.com";
+    }
+
+    //validate phone #
+    if(!validatePhone(phone))
+    {
+        validated = false;
+        alert"Please enter a phone number.";
+    }
+
+    //prevent form from submission upon failure to validate.
+    if(validated === false)
+    {
+        this.preventDefault();
+    }
 
 }
 
@@ -53,4 +97,22 @@ function validateEmail(email)
             return false;
         }
     }
- //Note: should probably still test these regexes to see if they work.
+
+    /**
+    * validates name with length (shortest name I can think of is Tom). and checks for numbers as well.
+    * @param name name to be passed in, first or last.
+    * @returns {boolean}
+    */
+    function validateName(fName)
+    {
+
+        if(fName.length < 3 && isNaN(name))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
