@@ -11,30 +11,51 @@ class Client extends Contact
     private $_photoshoot;
 
     /**
-     *
+     * Constructor for the Client object
      */
     public function __construct()
     {
         parent::__construct();
 
-        $this->_photoshoot = "";
+        $this->_photoshoot = [];
 
     }
 
     /**
-     * @return string
+     * methods checks if the object is premium
+     * @return int 0 (false)
      */
-    public function getPhotoshoot(): string
+    public function isPremium(): int
     {
-        return $this->_photoshoot;
+        return 1;
     }
 
     /**
-     * @param string $photoshoot
+     * Check whether is a client
+     * @return bool
      */
-    public function setPhotoshoot(string $photoshoot): void
+    public function isClient(): bool
+    {
+        return true;
+    }
+
+
+    /**
+     * Initializes local variable to store the client photo shoot options array
+     * @param array
+     */
+    public function setPhotoShoot(array $photoshoot): void
     {
         $this->_photoshoot = $photoshoot;
+    }
+
+    /**
+     * getter for photo shoot options
+     * @return array
+     */
+    public function getPhotoShoot(): array
+    {
+        return $this->_photoshoot;
     }
 
 }

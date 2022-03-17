@@ -33,4 +33,19 @@ class Validator
     static function validEmail($email){
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
+
+    /**
+     * @param $inputValues
+     * @return bool
+     */
+    static function validPhotoShoot($inputValues): bool
+    {
+
+        $storedValues = DataLayer::getPhotoshoot();
+
+        if (array_intersect($inputValues, array_values($storedValues)) != $inputValues){
+            return false;
+        }
+        return true;
+    }
 }

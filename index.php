@@ -19,29 +19,39 @@ $dataLayer = new DataLayer();
 $result = $dataLayer->getContacts();
 
 
-
-//Define a default root
-$f3->route('GET /', function () {
+//Define a default route
+$f3->route('GET /', function ()
+{
     $GLOBALS['con']->home();
 });
 
-$f3->route('GET /gallery', function () {
+//define gallery route
+$f3->route('GET /gallery', function ()
+{
     $GLOBALS['con']->gallery();
 });
 
-$f3->route('GET|POST /sign-up', function () {
-
+//define signUp route
+$f3->route('GET|POST /sign-up', function ()
+{
     $GLOBALS['con']->signUp();
 });
 
-$f3->route('GET /admin', function () {
+//define admmin route
+$f3->route('GET /admin', function ()
+{
     $GLOBALS['con']->admin();
 });
 
-$f3->route('GET|POST /photoshoot', function () {
-    $GLOBALS['con']->photoshoot();
+//define photo shoot route
+$f3->route('GET|POST /photoshoot', function ()
+{
+    if ($_SESSION['user'] instanceof Client) {
+        $GLOBALS['con']->photoshoot();
+    } else {
+        $GLOBALS['con']->reset();
+    }
 });
-
 
 //Run fat-free
 $f3->run();

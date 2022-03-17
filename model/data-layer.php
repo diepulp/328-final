@@ -2,7 +2,8 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../pdo-config.php');
 
 /**
- *
+ * Model class handles the DB connection
+ * as well as pulling data from the Data base to populate on the admin page
  */
 class DataLayer
 {
@@ -12,6 +13,7 @@ class DataLayer
      */
     private $_dbh;
 
+
     /**
      * constructs a new database access
      */
@@ -19,25 +21,20 @@ class DataLayer
     {
         try {
             $this->_dbh = new PDO (DB_DSN, DB_USERNAME, DB_PASSWORD);
-            //echo "YAY!";
         } catch (PDOException $e) {
             echo "Error connecting to db" . $e->getMessage();
         }
     }
 
+    /**
+     * Method insert user input data into the DB
+     * @param $user
+     */
     function insertContact($user)
     {
-        //1. define query
-        if ($user->getClient()) {
-            $sql = "INSERT INTO contacts(`fname`, `lname`, `phone`, `email`, `client`, `photoshoot`) 
+        //define the query
+        $sql = "INSERT INTO member(`fname`, `lname`, `phone`, `email`, `premium`, interests)
                                  values (:firstName, :lastName, :phone, :email, :client, :photoshoot)";
-            $client = 1;
-
-        } else {
-            $sql = "INSERT INTO contacts(`fname`, `lname`, `phone`, `email`, `client`) 
-                                 values (:firstName, :lastName, :phone, :email, :client)";
-            $client = 0;
-        }
 
         //2. prepare the statement
         $statement = $this->_dbh->prepare($sql);
@@ -47,37 +44,43 @@ class DataLayer
         $statement->bindParam(':lastName', $user->getLastName());
         $statement->bindParam(':phone', $user->getPhone());
         $statement->bindParam(':email', $user->getEmail());
-        $statement->bindParam(':client', $client);
-        if ($user->getClient()) {
-            $statement->bindParam(':photoshoot', $user->getPhotoshoot());
+        $statement->bindParam(':client', $user->isPremium());
+        if ($user->isClient()) {
+            $stringPhotoShoot = join(", ", $user->getPhotoShoot());
+            $statement->bindParam(':photoshoot', $stringPhotoShoot);
+        } else{
+            $photoShootNull = "";
+            $statement->bindParam(':photoshoot', $photoShootNull);
         }
 
         //4. execute the query
         $statement->execute();
 
-        //5. process the results
-        $id = $this->_dbh->lastInsertId();
-        return $id;
     }
 
+    /**
+     * Retrives the data form the database
+     * @return array|false
+     */
     function getContacts()
     {
         //1. define query
-        $sql = "SELECT * FROM contacts";
+        $sql = "SELECT fname, lname, phone, email, premium, interests, member_id from member";
 
         //2. prepare the statement
         $statement = $this->_dbh->prepare($sql);
-
-        //3. bind the parameters
 
         //4. execute the query
         $statement->execute();
 
         //5. process the results
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Array of photo shoot options for validation
+     * @return string[]
+     */
     static function getPhotoshoot()
     {
         return array('wedding', 'high school senior', 'maternity', 'family', 'newborn');

@@ -27,7 +27,7 @@ class Contact
     private $_client;
 
     /**
-     *
+     *Constructor for the Contact object
      */
     public function __construct()
     {
@@ -35,7 +35,25 @@ class Contact
         $this->_lastName = "";
         $this->_phone = "";
         $this->_email = "";
-        $this->_client = false;
+        /*$this->_client = false;*/
+    }
+
+    /**
+     * methods checks if the object is premium
+     * @return int 0 (false)
+     */
+    public function isPremium(): int
+    {
+        return 0;
+    }
+
+    /**
+     * Check whether is a client
+     * @return bool
+     */
+    public function isClient(): bool
+    {
+        return false;
     }
 
     /**

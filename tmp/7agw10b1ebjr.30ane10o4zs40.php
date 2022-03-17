@@ -1,5 +1,7 @@
  <?php echo $this->render('views/header.html',NULL,get_defined_vars(),0); ?>
  <?php echo $this->render('views/nav.html',NULL,get_defined_vars(),0); ?>
+
+
  <body>
 
 
@@ -55,6 +57,8 @@
         </button>
       </div>
       <div class="modal-body">
+
+        <!--Carousel-->
         <div id="carousel" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
