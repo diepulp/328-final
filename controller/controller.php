@@ -160,7 +160,7 @@ class Controller
                 $empty = ["No options were selected"];
                 $photoshoot = $empty;
                 $_SESSION['user']->setPhotoShoot($photoshoot);
-               /* $this->reset();*/
+                $this->reset();
             }
 
             //redirect to reset
@@ -186,9 +186,8 @@ class Controller
     {
 
         $GLOBALS['dataLayer']->insertContact($_SESSION['user']);
-
+        session_destroy();
         $this->_f3->reroute('gallery');
-
     }
 
     /**
@@ -199,7 +198,6 @@ class Controller
         $contacts = $GLOBALS['dataLayer']->getContacts();
 
         $this->_f3->set('contacts', $contacts);
-        session_destroy();
 
         $view = new Template();
         echo $view->render('views/admin.html');

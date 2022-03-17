@@ -7,8 +7,8 @@ ob_start();
 //Require the autoload file
 require_once('vendor/autoload.php');
 
-/*session_start();
-var_dump($_SESSION);*/
+session_start();
+/*var_dump($_SESSION);*/
 
 
 //Create an instance of the Base class
