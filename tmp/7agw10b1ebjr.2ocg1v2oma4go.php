@@ -11,7 +11,11 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
   />
 
-  <link rel="stylesheet" href="styles/homeStyle.css">
+  <link rel="stylesheet" href="C:\Users\diepu\SCHOOL\GreenRiverDev\328\328-final\styles">
+  <script src="scripts/map.js"></script>
+
+  }
+
   <style>
     #map{
       height:400px;
