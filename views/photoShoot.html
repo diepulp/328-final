@@ -9,10 +9,10 @@
         <div class="row">
             <div class="col">
                 <div class="col ">
-                    <repeat group="{{ @photoshootOptions }}" value="{{ @photoshootOptions }}">
-                        <label class="form-check-label p-3"><input type="checkbox" name="photoshoot[]"
-                                                               value="{{ @photoshootOptions }}"> {{
-                            ucfirst(@photoshootOptions) }}</label>
+                    <repeat group="{{ @photoShootOptions }}" value="{{ @photoShootOptions }}">
+                        <label class="form-check-label p-3"><input type="checkbox" name="photoShoot[]"
+                                                               value="{{ @photoShootOptions }}"> {{
+                            ucfirst(@photoShootOptions) }}</label>
                     </repeat>
                 </div>
 
@@ -31,6 +31,7 @@
 
  <h1 class="text-center mt-5 text-warning">Where would you like to get shot?</h1>
  <div class="container">
+     <p>map does not load in firefox unless script is embedded into the HTML</p>
      <div class="m-5" id="map"></div>
  </div>
 

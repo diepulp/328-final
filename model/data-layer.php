@@ -34,9 +34,9 @@ class DataLayer
     {
         //define the query
         $sql = "INSERT INTO member(`fname`, `lname`, `phone`, `email`, `premium`, interests)
-                                 values (:firstName, :lastName, :phone, :email, :client, :photoshoot)";
+                                 values (:firstName, :lastName, :phone, :email, :client, :photoShoot)";
 
-        //2. prepare the statement
+        // prepare the statement
         $statement = $this->_dbh->prepare($sql);
 
         //3. bind the parameters
@@ -47,13 +47,13 @@ class DataLayer
         $statement->bindParam(':client', $user->isPremium());
         if ($user->isClient()) {
             $stringPhotoShoot = join(", ", $user->getPhotoShoot());
-            $statement->bindParam(':photoshoot', $stringPhotoShoot);
+            $statement->bindParam(':photoShoot', $stringPhotoShoot);
         } else{
             $photoShootNull = "";
-            $statement->bindParam(':photoshoot', $photoShootNull);
+            $statement->bindParam(':photoShoot', $photoShootNull);
         }
 
-        //4. execute the query
+        // execute the query
         $statement->execute();
 
     }
@@ -64,16 +64,16 @@ class DataLayer
      */
     function getContacts()
     {
-        //1. define query
+        // define query
         $sql = "SELECT fname, lname, phone, email, premium, interests, member_id from member";
 
-        //2. prepare the statement
+        // prepare the statement
         $statement = $this->_dbh->prepare($sql);
 
-        //4. execute the query
+        // execute the query
         $statement->execute();
 
-        //5. process the results
+        // process the results
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -81,7 +81,7 @@ class DataLayer
      * Array of photo shoot options for validation
      * @return string[]
      */
-    static function getPhotoshoot()
+    static function getPhotoShoot(): array
     {
         return array('wedding', 'high school senior', 'maternity', 'family', 'newborn');
     }

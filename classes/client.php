@@ -8,7 +8,7 @@ class Client extends Contact
     /**
      * @var string
      */
-    private $_photoshoot;
+    private $_photoShoot;
 
     /**
      * Constructor for the Client object
@@ -17,7 +17,7 @@ class Client extends Contact
     {
         parent::__construct();
 
-        $this->_photoshoot = [];
+        $this->_photoShoot = [];
 
     }
 
@@ -44,9 +44,9 @@ class Client extends Contact
      * Initializes local variable to store the client photo shoot options array
      * @param array
      */
-    public function setPhotoShoot(array $photoshoot): void
+    public function setPhotoShoot(array $photoShoot): void
     {
-        $this->_photoshoot = $photoshoot;
+        $this->_photoShoot = $photoShoot;
     }
 
     /**
@@ -55,7 +55,7 @@ class Client extends Contact
      */
     public function getPhotoShoot(): array
     {
-        return $this->_photoshoot;
+        return $this->_photoShoot;
     }
 
 }

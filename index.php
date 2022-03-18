@@ -1,7 +1,7 @@
 <?php
 //Turn on error reporting
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+/*ini_set('display_errors', 1);
+error_reporting(E_ALL);*/
 
 ob_start();
 //Require the autoload file
@@ -37,17 +37,17 @@ $f3->route('GET|POST /sign-up', function ()
     $GLOBALS['con']->signUp();
 });
 
-//define admmin route
+//define admin route
 $f3->route('GET /admin', function ()
 {
     $GLOBALS['con']->admin();
 });
 
 //define photo shoot route
-$f3->route('GET|POST /photoshoot', function ()
+$f3->route('GET|POST /photoShoot', function ()
 {
     if ($_SESSION['user'] instanceof Client) {
-        $GLOBALS['con']->photoshoot();
+        $GLOBALS['con']->photoShoot();
     } else {
         $GLOBALS['con']->reset();
     }

@@ -55,7 +55,7 @@
             <div class="form-group row pb-1">
                 <div class="col-sm-2">
 
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <label for="email" class="col-sm-2 col-form-label text-md-right">Email</label>
                 </div>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="email" id="email" value="{{ @Session.email }}">
@@ -68,11 +68,20 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <input class="form-check-input" type="checkbox" name="client" id="client">
-                    <label class=" col-md-10 text-md-right text-warning" for="client">
-                        Sign in to select photo shoot options
+            <!--<div class="form-group row">
+                    <label class="col-form-label" for="client">
+
                     </label>
+                <div class="for-group-row">
+                    <input class="form-check-input" type="checkbox" name="client" id="client">
+                </div>
+            </div>-->
+
+            <div class="form-check">
+                <label class="form-check-label d-block text-dark">
+                    <input id="check" class="form-check-input" type="checkbox" name="client"/>
+                    Sign in to select photo shoot options
+                </label>
             </div>
         </fieldset>
 

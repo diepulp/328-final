@@ -41,7 +41,7 @@ class Validator
     static function validPhotoShoot($inputValues): bool
     {
 
-        $storedValues = DataLayer::getPhotoshoot();
+        $storedValues = DataLayer::getPhotoShoot();
 
         if (array_intersect($inputValues, array_values($storedValues)) != $inputValues){
             return false;

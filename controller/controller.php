@@ -122,7 +122,7 @@ class Controller
             //Redirect user to some page
             if (empty($this->_f3->get('errors')) && $GLOBALS['isValid'] == true) {
 
-                $this->_f3->reroute('photoshoot');
+                $this->_f3->reroute('photoShoot');
 
             }
 
@@ -134,32 +134,32 @@ class Controller
     /**
      * routes to photo shoot for clients
      */
-    function photoshoot()
+    function photoShoot()
     {
         //set hive variable for checkboxes
-        $photoshootOptions = DataLayer::getPhotoshoot();
-        $this->_f3->set('photoshootOptions', $photoshootOptions);
+        $photoShootOptions = DataLayer::getPhotoShoot();
+        $this->_f3->set('photoShootOptions', $photoShootOptions);
 
         //If the form has been posted
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             //Add the data to the session variable
             //If interests were selected
-            if (isset($_POST['photoshoot'])) {
+            if (isset($_POST['photoShoot'])) {
 
                 //selected checkboxes
-                $photoshoot = $_POST['photoshoot'];
+                $photoShoot = $_POST['photoShoot'];
 
                 //If interests are valid
-                if (Validator::validPhotoShoot($photoshoot)) {
-                    $_SESSION['user']->setPhotoShoot($photoshoot);
+                if (Validator::validPhotoShoot($photoShoot)) {
+                    $_SESSION['user']->setPhotoShoot($photoShoot);
                 } else {
-                    $this->_f3->set("errors['photoshoot']", "Invalid selection");
+                    $this->_f3->set("errors['photoShoot']", "Invalid selection");
                 }
             } else {
                 $empty = ["No options were selected"];
-                $photoshoot = $empty;
-                $_SESSION['user']->setPhotoShoot($photoshoot);
+                $photoShoot = $empty;
+                $_SESSION['user']->setPhotoShoot($photoShoot);
                 $this->reset();
             }
 
@@ -168,15 +168,15 @@ class Controller
 
                 $stringPhotoShoot = join(", ", $_SESSION['user']->getPhotoShoot());
 
-                $_SESSION['photoshoot'] = $stringPhotoShoot;
+                $_SESSION['photoShoot'] = $stringPhotoShoot;
 
-                $this->_f3->set('photoshoot', $stringPhotoShoot);
+                $this->_f3->set('photoShoot', $stringPhotoShoot);
 
                 $this->reset();
             }
         }
         $view = new Template();
-        echo $view->render('views/photoshoot.html');
+        echo $view->render('views/photoShoot.html');
     }
 
     /**
